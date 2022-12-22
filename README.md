@@ -1,5 +1,8 @@
 # sshdockerlab
 
+CREDS:   
+
+user:password
 
 To get shell on a box:
 
