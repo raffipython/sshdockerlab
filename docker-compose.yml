@@ -8,6 +8,7 @@ services:
         ipv4_address: 192.168.10.2
     volumes:
         - .:/mnt
+    privileged: true 
   container2:
     image: labimage
     command: /bin/bash -c "bash /mnt/scripts/box2.sh;while true; do echo 'alive' && sleep 60; done"
@@ -18,6 +19,7 @@ services:
         ipv4_address: 192.168.20.2
     volumes:
         - .:/mnt
+    privileged: true 
   container3:
     image: labimage
     command: /bin/bash -c "bash /mnt/scripts/box3.sh;while true; do echo 'alive' && sleep 60; done"
@@ -28,6 +30,7 @@ services:
         ipv4_address: 192.168.30.2
     volumes:
         - .:/mnt
+    privileged: true 
   container4:
     image: labimage
     command: /bin/bash -c "bash /mnt/scripts/box4.sh;while true; do echo 'alive' && sleep 60; done"
@@ -38,6 +41,7 @@ services:
         ipv4_address: 192.168.40.2
     volumes:
         - .:/mnt
+    privileged: true 
   container5:
     image: labimage
     command: /bin/bash -c "bash /mnt/scripts/box5.sh;while true; do echo 'alive' && sleep 60; done"
@@ -46,6 +50,7 @@ services:
         ipv4_address: 192.168.40.3
     volumes:
         - .:/mnt
+    privileged: true 
 networks:
   network1:
     driver: bridge
