@@ -1,9 +1,8 @@
 FROM debian:buster
 
-RUN apt update && apt install  openssh-server sudo -y
+RUN apt update && apt install openssh-server sudo net-tools netcat python3 vim iptables wget curl nmap -y
 
-RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 user 
 
-RUN  echo 'test:test' | chpasswd
-
+RUN echo 'user:password' | chpasswd
 
