@@ -13,5 +13,5 @@ sudo docker-compose up -d
 sudo docker container list
 
 # Drop to shell on box 1
-sudo docker exec --privileged -it lab_container1_1 /bin/bash
+sudo docker exec --privileged -it sshdockerlab-main_container1_1 /bin/bash
 
