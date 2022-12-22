@@ -1,8 +1,12 @@
 # sshdockerlab
 
+unzip sshdockerlab-main.zip ; cd sshdockerlab-main ; chmod +x lab.sh ; ./lab.sh
+
 CREDS:   
 
 user:password
+
+
 
 To get shell on a box:
 
