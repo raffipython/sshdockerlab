@@ -2,7 +2,7 @@ version: "2"
 services:
   container1:
     image: labimage
-    command: /bin/bash -c "/mnt/scripts/box1.sh;while true; do echo 'alive' && sleep 60; done"
+    command: /bin/bash -c "bash /mnt/scripts/box1.sh;while true; do echo 'alive' && sleep 60; done"
     networks:
       network1:
         ipv4_address: 192.168.10.2
@@ -10,7 +10,7 @@ services:
         - .:/mnt
   container2:
     image: labimage
-    command: /bin/bash -c "/mnt/scripts/box2.sh;while true; do echo 'alive' && sleep 60; done"
+    command: /bin/bash -c "bash /mnt/scripts/box2.sh;while true; do echo 'alive' && sleep 60; done"
     networks:
       network1:
         ipv4_address: 192.168.10.3
@@ -20,7 +20,7 @@ services:
         - .:/mnt
   container3:
     image: labimage
-    command: /bin/bash -c "/mnt/scripts/box3.sh;while true; do echo 'alive' && sleep 60; done"
+    command: /bin/bash -c "bash /mnt/scripts/box3.sh;while true; do echo 'alive' && sleep 60; done"
     networks:
       network2:
         ipv4_address: 192.168.20.3
@@ -30,7 +30,7 @@ services:
         - .:/mnt
   container4:
     image: labimage
-    command: /bin/bash -c "/mnt/scripts/box4.sh;while true; do echo 'alive' && sleep 60; done"
+    command: /bin/bash -c "bash /mnt/scripts/box4.sh;while true; do echo 'alive' && sleep 60; done"
     networks:
       network3:
         ipv4_address: 192.168.30.3
