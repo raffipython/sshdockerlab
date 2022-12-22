@@ -40,7 +40,7 @@ services:
         - .:/mnt
   container5:
     image: labimage
-    command: /bin/bash -c "/mnt/scripts/box5.sh;while true; do echo 'alive' && sleep 60; done"
+    command: /bin/bash -c "bash /mnt/scripts/box5.sh;while true; do echo 'alive' && sleep 60; done"
     networks:
       network4:
         ipv4_address: 192.168.40.3
