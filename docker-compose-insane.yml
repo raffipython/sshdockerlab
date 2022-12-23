@@ -1,0 +1,103 @@
+version: "2"
+services:
+  container1:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box1-insane.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network1:
+        ipv4_address: 192.168.10.2
+    volumes:
+        - .:/mnt
+    privileged: true 
+  container2:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box2-insane.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network1:
+        ipv4_address: 192.168.10.3
+      network2:
+        ipv4_address: 192.168.20.2
+    volumes:
+        - .:/mnt
+    privileged: true 
+  container3:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box3-insane.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network2:
+        ipv4_address: 192.168.20.3
+      network3:
+        ipv4_address: 192.168.30.2
+    volumes:
+        - .:/mnt
+    privileged: true 
+  container4:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box4-insane.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network3:
+        ipv4_address: 192.168.30.3
+      network4:
+        ipv4_address: 192.168.40.2
+    volumes:
+        - .:/mnt
+    privileged: true 
+  container5:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box5-insane.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network4:
+        ipv4_address: 192.168.40.3
+      network5:
+        ipv4_address: 10.10.10.3  
+    volumes:
+        - .:/mnt
+    privileged: true 
+networks:
+  network1:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.10.0/24"
+          gateway: "192.168.10.1"
+  network2:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.20.0/24"
+          gateway: "192.168.20.1"
+  network3:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.30.0/24"
+          gateway: "192.168.30.1"
+  network4:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.40.0/24"
+          gateway: "192.168.40.1"
+
+
+
+  network5:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.10.10.0/24"
+          gateway: "10.10.10.1"
+
+
+
+
+
+
+
+
+
