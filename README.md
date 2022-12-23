@@ -57,5 +57,11 @@ For ssh tunneling probably a good idea to use -fNT flags so you keep your curren
 
 `ssh -fNT -L 127.0.0.1:9999:TGT_TWO:TGT_PORT USER@TGT_ONE`
 
+Lab layout of class and blackbox:
+
+*BOX1 -> BOX2 -> BOX3 -> BOX4 -> BOX5*
+
+IP of BOX1 is 192.168.10.2. BOX2 is 192.168.10.3 (or random one in blackbox mode). There are four subnets and your goal is to reach BOX5
+
 
 
