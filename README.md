@@ -10,7 +10,7 @@ Make sure you have python3 installed
 
 `python3 -V`
 
-Download and install lab files
+Download and install lab files (need sudo, it may prompt you for your password)
 
 `chmod +x ./sshdockerlab.py ; ./sshdockerlab.py -i`
 
@@ -25,7 +25,7 @@ Default creds for the boxes are user:password but for blackbox and insane versio
 
 ***insane*** *[same as blackbox but with extra boxes and multi-nic boxes] (NOT YET IMPLEMENTED)*
 
-`./sshdockerlab.py -c` , `./sshdockerlab.py -c -t blackbox` , or `./sshdockerlab.py -c -t insane`
+`./sshdockerlab.py -c` , `./sshdockerlab.py -c -t blackbox` , or `./sshdockerlab.py -c -t insane` (need sudo, it may prompt you for your password)
 
 
 **Interacting with lab containers**
@@ -34,11 +34,11 @@ First box is PENTESTER box that you will use to start with. If you are using Kal
 
 To list containers for debugging purposes:
 
-`./sshdockerlab.py -l`
+`./sshdockerlab.py -l` (need sudo, it may prompt you for your password)
 
 To get shell on first box:
 
-`./sshdockerlab.py -s 1`
+`./sshdockerlab.py -s 1` (need sudo, it may prompt you for your password)
 
 You can use other box numbers such as 2 in the command above to get direct shell to the other boxes. However, this should be used only for debugging purposes. Only get a shell on the first box and walk your way out.
 
@@ -46,7 +46,7 @@ You can use other box numbers such as 2 in the command above to get direct shell
 
 To end the lab and destroy all containers:
 
-`./sshdockerlab.py -e`
+`./sshdockerlab.py -e` (need sudo, it may prompt you for your password)
 
 **Notes**
 Docker commands can be senstive to the current working directory. Make sure you are in *sshdockerlab-main* folder when running the `sshdockerlab.py` commands. 
