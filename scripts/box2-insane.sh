@@ -3,4 +3,4 @@ echo "user:$PASS" | chpasswd
 PORT=$(shuf -i 2000-65000 -n 1)
 sed -i "s/#Port 22/Port $PORT/" /etc/ssh/sshd_config
 service ssh start 
-echo BOX1 > /proc/sys/kernel/hostname
+echo MERCURY > /proc/sys/kernel/hostname
