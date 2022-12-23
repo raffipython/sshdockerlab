@@ -51,7 +51,7 @@ To end the lab and destroy all containers:
 **Notes**
 Docker commands can be senstive to the current working directory. Make sure you are in *sshdockerlab-main* folder when running the `sshdockerlab.py` commands. 
 
-Use `hydra` and `nmap`!
+Use `hydra` and `nmap`. /mnt/ is mounted locally so you can use /mnt/rockyou.txt when bruteforcing.
 
 For ssh tunneling probably a good idea to use -fNT flags so you keep your current shell on the PENTESTER box for example:
 
