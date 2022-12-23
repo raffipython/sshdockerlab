@@ -23,7 +23,7 @@ Default creds for the boxes are user:password but for blackbox and insane versio
 
 ***blackbox*** *[port and password are random]*
 
-***insane*** *[same as blackbox but with extra boxes and multi-nic boxes] (NOT YET IMPLEMENTED)*
+***insane*** *[similar to classic but with extra boxes and multi-nic boxes]*
 
 `./sshdockerlab.py -c` , `./sshdockerlab.py -c -t blackbox` , or `./sshdockerlab.py -c -t insane` (need sudo, it may prompt you for your password)
 
@@ -63,5 +63,11 @@ Lab layout of classic and blackbox mode:
 
 IP of BOX1 is 192.168.10.2. BOX2 is 192.168.10.3 (or random one in blackbox mode). There are four subnets and your goal is to reach BOX5
 
+Lab layout of insane:
 
+*BOX1 -> BOX2 -> BOX3 -> BOX4 -> BOX5 -> BOX6 -> BOX7*
+
+*BOX6 -> BOX8*
+
+*BOX6 -> BOX9 -> BOX10*
 
