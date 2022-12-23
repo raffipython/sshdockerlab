@@ -12,7 +12,7 @@ Make sure you have python3 installed
 
 Download and install lab files
 
-`./sshdockerlab.py -i`
+`chmod +x ./sshdockerlab.py ; ./sshdockerlab.py -i`
 
 
 **Create lab containers**
