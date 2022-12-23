@@ -57,7 +57,7 @@ For ssh tunneling probably a good idea to use -fNT flags so you keep your curren
 
 `ssh -fNT -L 127.0.0.1:9999:TGT_TWO:TGT_PORT USER@TGT_ONE`
 
-Lab layout of class and blackbox:
+Lab layout of classic and blackbox mode:
 
 *BOX1 -> BOX2 -> BOX3 -> BOX4 -> BOX5*
 
