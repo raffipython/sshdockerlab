@@ -1,24 +1,61 @@
 # sshdockerlab
 
-unzip sshdockerlab-main.zip ; cd sshdockerlab-main ; chmod +x lab.sh ; ./lab.sh
+**Initial Setup**
 
-CREDS:   
+`cd ~/Downloads`
 
-user:password
+`unzip sshdockerlab-main.zip ; cd sshdockerlab-main`
+
+Make sure you have python3 installed
+
+`python3 -V`
+
+Download and install lab files
+
+`./sshdockerlab.py -i`
 
 
+**Create lab containers**
 
-To get shell on a box:
+Default creds for the boxes are user:password but for blackbox and insane versions passwords are random. There are three modes for this lab:
 
-sudo docker exec --privileged -it sshdockerlab-main_container<1-5>_1 /bin/bash
+***classic*** *[default five box setup]*
 
-PENTESTER BOX for example:
+***blackbox*** *[port and password are random]*
 
-sudo docker exec --privileged -it sshdockerlab-main_container1_1 /bin/bash
+***insane*** *[same as blackbox but with extra boxes and multi-nic boxes] (NOT YET IMPLEMENTED)*
 
-For ssh tunneling probably a good idea to use -fNT flags such as:
+`./sshdockerlab.py -c` , `./sshdockerlab.py -c -t blackbox` , or `./sshdockerlab.py -c -t insane`
 
-ssh -fNT -L 127.0.0.1:9999:TGT_TWO:TGT_PORT USER@TGT_ONE
+
+**Interacting with lab containers**
+
+First box is PENTESTER box that you will use to start with. If you are using Kali and want to use your host as first box you can. Your host IP should be 192.168.10.1 so you can SSH to 192.168.10.2 in the beginning.
+
+To list containers for debugging purposes:
+
+`./sshdockerlab.py -l`
+
+To get shell on first box:
+
+`./sshdockerlab.py -s 1`
+
+You can use other box numbers such as 2 in the command above to get direct shell to the other boxes. However, this should be used only for debugging purposes. Only get a shell on the first box and walk your way out.
+
+**Ending lab**
+
+To end the lab and destroy all containers:
+
+`./sshdockerlab.py -e`
+
+**Notes**
+Docker commands can be senstive to the current working directory. Make sure you are in *sshdockerlab-main* folder when running the `sshdockerlab.py` commands. 
+
+Use `hydra` and `nmap`!
+
+For ssh tunneling probably a good idea to use -fNT flags so you keep your current shell on the PENTESTER box for example:
+
+`ssh -fNT -L 127.0.0.1:9999:TGT_TWO:TGT_PORT USER@TGT_ONE`
 
 
 
