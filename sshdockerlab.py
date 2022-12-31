@@ -28,14 +28,11 @@ def banner():
 
 def init():
     """ Initial setup to download files. You should only need to run this function once """
-
     p(Fore.YELLOW, "Downloading and installing docker, terminator, and rockyou list")
     os.system("sudo apt-get -y install terminator docker docker-compose")
     os.system("sudo docker pull debian:buster")
     os.system("sudo docker build -t labimage .")
     os.system("wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt")
-    # TODO: Add msfconsole as box #0 if needed
-    #       Modify insane scripts
 
 
 def create(lab_type):
@@ -45,10 +42,13 @@ def create(lab_type):
     # Remove old containers
     os.system("sudo docker container list | grep sshdocker && sudo docker-compose down --remove-orphans")
     
-    if lab_type == "blackbox":
-        dockerfilearg = "-f docker-compose-blackbox.yml"
-    elif lab_type == "insane":
-        dockerfilearg = "-f docker-compose-insane.yml"
+    if lab_type:
+        if lab_type == "blackbox":
+            dockerfilearg = "-f docker-compose-blackbox.yml"
+        elif lab_type == "insane":
+            dockerfilearg = "-f docker-compose-insane.yml"
+        else:
+            dockerfilearg = "-f " + lab_type
     else:
         dockerfilearg = ""
 
@@ -88,7 +88,7 @@ def main():
     parser.add_argument("-c", "--create", action='store_true', help="Create the lab based on the type given")
     parser.add_argument("-l", "--list", action='store_true', help="List running container for debugging purposes")
     parser.add_argument("-e", "--end", action='store_true', help="End the lab and shutdown containers")
-    parser.add_argument("-t", "--type", type=str, default="classic", help="Lab type: [classic (default), blackbox, insane")
+    parser.add_argument("-t", "--type", type=str, default="classic", help="Lab type: [classic (default), blackbox, insane or pass your custome docker-compose yaml file]")
     parser.add_argument("-s", "--shell", type=str, help="Box number to interact with")
     args = parser.parse_args()
 

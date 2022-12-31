@@ -1,0 +1,54 @@
+version: "2"
+# Services section is the containers section
+services:
+  # Each section is a container named <STRING> i.e. container1 in first example                
+  container1:
+    # Using labimage image that we created in Dockerfile during initial setup      
+    image: labimage
+    # Use your custom script here to provision the box instead of box1.sh 
+    command: /bin/bash -c "bash /mnt/scripts/box1.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network1:
+        # Static IP of the box in that subnet
+        ipv4_address: 192.168.10.2
+    volumes:
+        - .:/mnt
+    privileged: true 
+  container2:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box2.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network1:
+        ipv4_address: 192.168.10.3
+      network2:
+        ipv4_address: 192.168.20.2
+    volumes:
+        - .:/mnt
+    privileged: true 
+  container3:
+    image: labimage
+    command: /bin/bash -c "bash /mnt/scripts/box3.sh;while true; do echo 'alive' && sleep 60; done"
+    networks:
+      network2:
+        ipv4_address: 192.168.20.3
+    volumes:
+        - .:/mnt
+    privileged: true 
+# Networks sections    
+networks:
+  # Each section is a network named <STRING> i.e. network1 in first example
+  network1:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.10.0/24"
+          # IP of the host in that subnet
+          gateway: "192.168.10.1"
+  network2:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.20.0/24"
+          gateway: "192.168.20.1"
