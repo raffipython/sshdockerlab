@@ -73,3 +73,16 @@ Lab layout of insane:
 
 *BOX6 -> BOX9 -> BOX10*
 
+
+**Customizing your build**
+
+To edit the base image and add extra packages, edit the Dockerfile and rerun `./sshdockerlab.py -i`
+
+To edit the network map pass your custom docker-compose yaml file to the main script for example 
+
+`./sshdockerlab.py -c -t docker-template.yml`
+
+To edit a box setup, modify/create a bash script such as box1.sh and pass that to the docker-compose yaml file in the command section for example 
+
+*command: /bin/bash -c "bash /mnt/scripts/BOXNAME.sh;while true; do echo 'alive' && sleep 60; done"*
+
