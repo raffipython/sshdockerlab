@@ -86,7 +86,7 @@ def main():
     parser.add_argument("-c", "--create", action='store_true', help="Create the lab based on the type given")
     parser.add_argument("-l", "--list", action='store_true', help="List running container for debugging purposes")
     parser.add_argument("-e", "--end", action='store_true', help="End the lab and shutdown containers")
-    parser.add_argument("-t", "--type", type=str, default="classic", help="Lab type: [classic (default), blackbox, insane or pass your custome docker-compose yaml file]")
+    parser.add_argument("-t", "--type", type=str, default="", help="Lab type: [classic (default), blackbox, insane or pass your custome docker-compose yaml file]")
     parser.add_argument("-s", "--shell", type=str, help="Box number to interact with")
     args = parser.parse_args()
 
