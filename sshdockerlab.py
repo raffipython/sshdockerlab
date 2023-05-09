@@ -47,8 +47,6 @@ def create(lab_type):
             dockerfilearg = "-f docker-compose-blackbox.yml"
         elif lab_type == "insane":
             dockerfilearg = "-f docker-compose-insane.yml"
-        else:
-            dockerfilearg = "-f " + lab_type
     else:
         dockerfilearg = ""
 
