@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/29049788/209403469-f023e5db-cf38-4af5-96dd-b998adabe281.png)
 
-**Initial Setup**
+**Initial Setup (IF YOU GOT HERE FOR TRAINING, PLEASE RUN THE SETUP AND INSTALL LAB FILES WHILE YOU HAVE INTERNET SINCE CLASSROOM DOESNT HAVE WIFI) **
 
 `cd ~/Downloads`
 
